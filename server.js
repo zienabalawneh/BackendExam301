@@ -31,9 +31,9 @@ var Mymodeldigimons = mongoose.model("digimons", digimonsSchema);
 
 server.get('/test', HandlerTest);
 server.get('/digimons', getDigimonHandler);
-server.post('/addDigimons', addFavHandler);
-server.get('/favoritedigimons', getFavHandler)
-server.delete('/deleteDigimons/:index', deleteFavHandler);
+// server.post('/addDigimons', addFavHandler);
+// server.get('/favoritedigimons', getFavHandler)
+// server.delete('/deleteDigimons/:index', deleteFavHandler);
 
 function HandlerTest(req, res) {
 
@@ -64,62 +64,6 @@ function getDigimonHandler(req, res) {
 
 }
 
-
-
-
-
-function addFavHandler(req, res) {
-
-    const { name, img, level } = req.body;
-
-    newdigimon = new mongoose.Mymodeldigimons({
-
-        name: name,
-        img: img,
-        level: level
-    })
-    res.send(newdigimon);
-
-}
-
-
-
-
-function getFavHandler(req, res) {
-
-    Mymodeldigimons.find({}, (error, datafav) => {
-
-        res.send(datafav);
-
-
-    })
-
-
-}
-
-function deleteFavHandler(req, res) {
-    const index = req.prams.body;
-
-    Mymodeldigimons.remove.findOne({ index: index }, (erorr, dataf) => {
-
-
-        Mymodeldigimons.find({}, (error, datafav) => {
-
-            res.send(datafav);
-
-
-        })
-
-
-
-
-    })
-
-
-}
-
-
-
 class Digimon {
 
     constructor(data) {
@@ -129,10 +73,6 @@ class Digimon {
 
 
     }
-
-
-
-
 
 
 }
